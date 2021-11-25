@@ -1,14 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using Yankon.Framework.Extension;
-using Yankon.Framework.IniExtension;
-using TPCOMMGER.Helper;
+using TPCOMMGER.Framework;
+using TPCOMMGER.Framework.Helper;
 
 namespace TPCOMMGER
 {

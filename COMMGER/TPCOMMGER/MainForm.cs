@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Yankon.Framework.IniExtension;
-using TPCOMMGER.Helper;
-using TPCOMMGER.CusEnum;
 using Newtonsoft.Json;
-using Yankon.Framework.Extension;
-using TPCOMMGER.Model;
+using TPCOMMGER.Framework.Model;
+using TPCOMMGER.Framework.CusEnum;
+using TPCOMMGER.Framework.Helper;
+using TPCOMMGER.Framework;
 
 namespace TPCOMMGER
 {

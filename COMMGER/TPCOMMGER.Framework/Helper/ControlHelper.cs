@@ -18,17 +18,17 @@ using System.Text;
 *│　Copyright @ Yankon 2021. All rights reserved                                                                
 *└────────────────────────────┘
 */
-namespace TPCOMMGER.Helper
+namespace TPCOMMGER.Framework.Helper
 {
     ///  功能描述：
     /// <para>作者：jianmei.zhan</para>
     /// <para>邮箱：jianmei.zhan@yankon.com</para>
     /// <para>时间：2021/11/26 8:36:34</para>
     /// </summary>
-    internal static class ControlHelper
+    public static class ControlHelper
     {
-        internal const string DFLabelLName = "name0";
-        internal const string DFLabelLText = "标签Code";
-        internal const string DFLabelTName = "textBoxCode";
+        public const string DFLabelLName = "name0";
+        public const string DFLabelLText = "标签Code";
+        public const string DFLabelTName = "textBoxCode";
     }
 }

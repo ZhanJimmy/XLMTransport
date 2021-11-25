@@ -3,16 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using TPCOMMGER.CusEnum;
-using TPCOMMGER.Helper;
-using TPCOMMGER.Model;
-using Yankon.Framework.Extension;
-using Yankon.Framework.IniExtension;
+using TPCOMMGER.Framework;
+using TPCOMMGER.Framework.CusEnum;
+using TPCOMMGER.Framework.Helper;
+using TPCOMMGER.Framework.Model;
 
 namespace TPCOMMGER
 {

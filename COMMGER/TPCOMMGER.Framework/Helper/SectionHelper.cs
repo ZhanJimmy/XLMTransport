@@ -18,21 +18,21 @@ using System.Text;
 *│　Copyright @ Yankon 2021. All rights reserved                                                                
 *└────────────────────────────┘
 */
-namespace TPCOMMGER.Helper
+namespace TPCOMMGER.Framework.Helper
 {
     ///  功能描述：
     /// <para>作者：jianmei.zhan</para>
     /// <para>邮箱：jianmei.zhan@yankon.com</para>
     /// <para>时间：2021/11/25 14:04:54</para>
     /// </summary>
-    internal static class SectionHelper
+    public static class SectionHelper
     {
-        internal const string SCoil = "CoilSection";
-        internal const string SCoilData = "CoilSection";
-        internal const string SLabel = "LabelSection";
-        internal const string SLabelData = "LabelSection";
-        internal const string SPlc = "PlcSection";
-        internal const string SSeries = "PlcSeries";
-        internal const string SModel = "PlcModel";
+        public const string SCoil = "CoilSection";
+        public const string SCoilData = "CoilSection";
+        public const string SLabel = "LabelSection";
+        public const string SLabelData = "LabelSection";
+        public const string SPlc = "PlcSection";
+        public const string SSeries = "PlcSeries";
+        public const string SModel = "PlcModel";
     }
 }

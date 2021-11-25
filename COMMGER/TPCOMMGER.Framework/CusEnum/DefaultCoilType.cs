@@ -19,14 +19,14 @@ using System.Text;
 *│　Copyright @ Yankon 2021. All rights reserved                                                                
 *└────────────────────────────┘
 */
-namespace TPCOMMGER.CusEnum
+namespace TPCOMMGER.Framework.CusEnum
 {
     ///  功能描述：
     /// <para>作者：jianmei.zhan</para>
     /// <para>邮箱：jianmei.zhan@yankon.com</para>
     /// <para>时间：2021/11/25 13:32:40</para>
     /// </summary>
-    internal enum DefaultCoilType
+    public enum DefaultCoilType
     {
         [Description("投入")]
         In = 1,

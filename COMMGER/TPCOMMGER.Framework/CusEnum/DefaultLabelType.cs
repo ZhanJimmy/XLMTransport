@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 /**
@@ -10,7 +11,7 @@ using System.Text;
 *│　邮    箱：jianmei.zhan@yankon.com 
 *│　公    司：厦门阳光恩耐照明有限公司      
 *│　部    门：数字化研发部                           
-*│　创建时间：2021/11/25 11:28:09                                          
+*│　创建时间：2021/11/25 14:52:58                                          
 *│　版    本：V1.0.0      
 *│　功能描述：                           
 *└────────────────────────────┘
@@ -18,23 +19,32 @@ using System.Text;
 *│　Copyright @ Yankon 2021. All rights reserved                                                                
 *└────────────────────────────┘
 */
-namespace TPCOMMGER.Model
+namespace TPCOMMGER.Framework.CusEnum
 {
     ///  功能描述：
     /// <para>作者：jianmei.zhan</para>
     /// <para>邮箱：jianmei.zhan@yankon.com</para>
-    /// <para>时间：2021/11/25 11:28:09</para>
+    /// <para>时间：2021/11/25 14:52:58</para>
     /// </summary>
-    public sealed class ListItemModel
+    public enum DefaultLabelType
     {
-        /// <summary>
-        /// 显示值
-        /// </summary>
-        public string Value { get; set; }
-
-        /// <summary>
-        /// 显示的文本
-        /// </summary>
-        public string Display { get; set; }
+        [Description("区域")]
+        Area = 0,
+        [Description("楼栋")]
+        Building = 1,
+        [Description("楼层")]
+        Floor = 2,
+        [Description("车间")]
+        WorkShop = 3,
+        [Description("部门")]
+        Department = 4,
+        [Description("课")]
+        Class = 5,
+        [Description("线别")]
+        LineNum = 6,
+        [Description("线别名称")]
+        Line = 7,
+        [Description("线体类型")]
+        BoardFlag = 8,
     }
 }

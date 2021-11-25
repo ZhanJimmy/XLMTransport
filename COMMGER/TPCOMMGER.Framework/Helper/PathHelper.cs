@@ -19,16 +19,16 @@ using System.Text;
 *│　Copyright @ Yankon 2021. All rights reserved                                                                
 *└────────────────────────────┘
 */
-namespace TPCOMMGER.Helper
+namespace TPCOMMGER.Framework.Helper
 {
     ///  功能描述：
     /// <para>作者：jianmei.zhan</para>
     /// <para>邮箱：jianmei.zhan@yankon.com</para>
     /// <para>时间：2021/11/25 14:41:08</para>
     /// </summary>
-    internal static class PathHelper
+    public static class PathHelper
     {
-        internal static string PathBase
+        public static string PathBase
         {
             get
             {
@@ -41,13 +41,13 @@ namespace TPCOMMGER.Helper
             }
         }
 
-        internal static string PTCoil => $"{PathBase}/{PathNameHelper.PNCoil}.ini";
-        internal static string PTCoilData => $"{PathBase}/{PathNameHelper.PNCoilData}.ini";
-        internal static string PTLabel => $"{PathBase}/{PathNameHelper.PNLabel}.ini";
-        internal static string PTLabelData => $"{PathBase}/{PathNameHelper.PNLabelData}.ini";
-        internal static string PTPlcData => $"{PathBase}/{PathNameHelper.PNPlcData}.ini";
-        internal static string PTPlcDetailData => $"{PathBase}/{PathNameHelper.PNPlcDetailData}.ini";
-        internal static string PTSeries => $"{PathBase}/{PathNameHelper.PNSeries}.ini";
-        internal static string PTModel => $"{PathBase}/{PathNameHelper.PNModel}.ini";
+        public static string PTCoil => $"{PathBase}/{PathNameHelper.PNCoil}.ini";
+        public static string PTCoilData => $"{PathBase}/{PathNameHelper.PNCoilData}.ini";
+        public static string PTLabel => $"{PathBase}/{PathNameHelper.PNLabel}.ini";
+        public static string PTLabelData => $"{PathBase}/{PathNameHelper.PNLabelData}.ini";
+        public static string PTPlcData => $"{PathBase}/{PathNameHelper.PNPlcData}.ini";
+        public static string PTPlcDetailData => $"{PathBase}/{PathNameHelper.PNPlcDetailData}.ini";
+        public static string PTSeries => $"{PathBase}/{PathNameHelper.PNSeries}.ini";
+        public static string PTModel => $"{PathBase}/{PathNameHelper.PNModel}.ini";
     }
 }
