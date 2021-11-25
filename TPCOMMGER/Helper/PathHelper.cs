@@ -47,5 +47,7 @@ namespace TPCOMMGER.Helper
         internal static string PTLabelData => $"{PathBase}/{PathNameHelper.PNLabelData}.ini";
         internal static string PTPlcData => $"{PathBase}/{PathNameHelper.PNPlcData}.ini";
         internal static string PTPlcDetailData => $"{PathBase}/{PathNameHelper.PNPlcDetailData}.ini";
+        internal static string PTSeries => $"{PathBase}/{PathNameHelper.PNSeries}.ini";
+        internal static string PTModel => $"{PathBase}/{PathNameHelper.PNModel}.ini";
     }
 }

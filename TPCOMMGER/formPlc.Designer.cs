@@ -112,13 +112,11 @@
             // cbSeries
             // 
             this.cbSeries.FormattingEnabled = true;
-            this.cbSeries.Items.AddRange(new object[] {
-            "台达",
-            "欧姆龙"});
             this.cbSeries.Location = new System.Drawing.Point(67, 166);
             this.cbSeries.Name = "cbSeries";
             this.cbSeries.Size = new System.Drawing.Size(155, 25);
             this.cbSeries.TabIndex = 5;
+            this.cbSeries.SelectedIndexChanged += new System.EventHandler(this.cbSeries_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -154,9 +152,6 @@
             // cbModel
             // 
             this.cbModel.FormattingEnabled = true;
-            this.cbModel.Items.AddRange(new object[] {
-            "Modbus",
-            "FinsTcp"});
             this.cbModel.Location = new System.Drawing.Point(67, 202);
             this.cbModel.Name = "cbModel";
             this.cbModel.Size = new System.Drawing.Size(155, 25);

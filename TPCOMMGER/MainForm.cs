@@ -61,10 +61,21 @@ namespace TPCOMMGER
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            InitDefault();
+            InitData();
+            InitDefault();          
+        }
+
+        #region 加载 默认
+        private void InitDefault()
+        {
+            InitDefaultCoil();
+            InitDefaultLabel();
+        }
+        private void InitData()
+        {
             var keys = BaseIniHelper.ReadKeys(PathHelper.PTPlcData, SectionHelper.SPlc);
             DataTable dataTable = new DataTable();
-            foreach(DataGridViewColumn col in dataGridView1.Columns)
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
                 dataTable.Columns.Add(col.Name);
             }
@@ -82,13 +93,6 @@ namespace TPCOMMGER
             }
             dataGridView1.DataSource = dataTable;
             if (dataTable.Rows.Count > 0) SelectedRowIndex = 0;
-        }
-
-        #region 加载 默认
-        private void InitDefault()
-        {
-            InitDefaultCoil();
-            InitDefaultLabel();
         }
         private void InitDefaultCoil()
         {
@@ -140,6 +144,12 @@ namespace TPCOMMGER
         {
             formPlc form = new formPlc();
             form.Show();
+            form.FormClosed += Form_FormClosed;
+        }
+
+        private void Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            InitData();
         }
 
         private void button4_Click(object sender, EventArgs e)

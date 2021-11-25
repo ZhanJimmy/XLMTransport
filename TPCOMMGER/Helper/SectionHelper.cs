@@ -32,5 +32,7 @@ namespace TPCOMMGER.Helper
         internal const string SLabel = "LabelSection";
         internal const string SLabelData = "LabelSection";
         internal const string SPlc = "PlcSection";
+        internal const string SSeries = "PlcSeries";
+        internal const string SModel = "PlcModel";
     }
 }
