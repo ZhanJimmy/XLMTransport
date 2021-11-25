@@ -13,12 +13,14 @@ using TPCOMMGER.Helper;
 using TPCOMMGER.CusEnum;
 using Newtonsoft.Json;
 using Yankon.Framework.Extension;
+using TPCOMMGER.Model;
 
 namespace TPCOMMGER
 {
     public partial class MainForm : Form
     {
         int SelectedRowIndex = -1;
+        List<ListItemModel> lsSeries = new List<ListItemModel>();
         public MainForm()
         {
             InitializeComponent();
@@ -61,6 +63,7 @@ namespace TPCOMMGER
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            InitBox();
             InitData();
             InitDefault();          
         }
@@ -70,6 +73,16 @@ namespace TPCOMMGER
         {
             InitDefaultCoil();
             InitDefaultLabel();
+        }
+        private void InitBox()
+        {
+            var arr = Enum.GetValues(typeof(DefaultSeries));
+            foreach (var name in arr)
+            {
+                var field = typeof(DefaultSeries).GetField(name.ToString());
+                DescriptionAttribute ds = (DescriptionAttribute)System.Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute), false);
+                lsSeries.Add(new ListItemModel() { Value = field.Name, Display = ds.Description });
+            }
         }
         private void InitData()
         {
@@ -86,8 +99,11 @@ namespace TPCOMMGER
                 var newRow = dataTable.NewRow();
                 foreach (var dk in dic.Keys)
                 {
-                    if (dataTable.Columns.Contains(dk))
+                    if (dataTable.Columns.Contains(dk) == false) continue;
+                    if (dk != "Series")
                         newRow[dk] = dic[dk];
+                    else
+                        newRow[dk] = lsSeries?.FirstOrDefault(t => t.Value == dic[dk].ToString())?.Display;
                 }
                 dataTable.Rows.Add(newRow);
             }
