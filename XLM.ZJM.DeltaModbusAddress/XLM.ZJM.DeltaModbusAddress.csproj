@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <Version>1.0.0</Version>
+    <Authors>JimmyZhan</Authors>
+    <Company></Company>
+    <Copyright></Copyright>
+    <Description>AS和DVP系列地址 
+通讯 HEX地址转换</Description>
+  </PropertyGroup>
+
+</Project>
