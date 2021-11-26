@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XLM.ZJM.DeltaModbusAddress"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "类库", "类库", "{4FC6CB4B-AB4A-465B-BCBE-A996D03E518D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XLM.ZJM.Communication", "XLM.ZJM.Communication\XLM.ZJM.Communication.csproj", "{C3C62208-647E-4ADD-A572-D3AF2F402283}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "测试", "测试", "{5ACD2FBA-526A-4950-A2D5-A5B14EBC0295}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestModbusTcp", "TestModbusTcp\TestModbusTcp.csproj", "{F3BD3D88-A396-4C01-BBCA-7FB0C884565D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +23,22 @@ Global
 		{B5C9511C-0178-4435-9710-B94489B65C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5C9511C-0178-4435-9710-B94489B65C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5C9511C-0178-4435-9710-B94489B65C71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3C62208-647E-4ADD-A572-D3AF2F402283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3C62208-647E-4ADD-A572-D3AF2F402283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3C62208-647E-4ADD-A572-D3AF2F402283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3C62208-647E-4ADD-A572-D3AF2F402283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3BD3D88-A396-4C01-BBCA-7FB0C884565D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3BD3D88-A396-4C01-BBCA-7FB0C884565D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3BD3D88-A396-4C01-BBCA-7FB0C884565D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3BD3D88-A396-4C01-BBCA-7FB0C884565D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B5C9511C-0178-4435-9710-B94489B65C71} = {4FC6CB4B-AB4A-465B-BCBE-A996D03E518D}
+		{C3C62208-647E-4ADD-A572-D3AF2F402283} = {4FC6CB4B-AB4A-465B-BCBE-A996D03E518D}
+		{F3BD3D88-A396-4C01-BBCA-7FB0C884565D} = {5ACD2FBA-526A-4950-A2D5-A5B14EBC0295}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D9AA56C2-58CE-4A93-901F-60089B4B2AD0}

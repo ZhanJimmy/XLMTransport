@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="E4VhgTpmI0OExW7jOPa.cs" />
+    <Compile Remove="EDrUA0pl0xMyNpoUeIf.cs" />
+    <Compile Remove="EhxUbo4E2hcUv9Jge6.cs" />
+    <Compile Remove="h6ptfFlEpeefrCDnHq.cs" />
+    <Compile Remove="Hk4V7djHlCEoaA03kR.cs" />
+    <Compile Remove="Mr7uTkdKIb9TFESDMR.cs" />
+    <Compile Remove="sSPEelLVXvfc5HnlD1.cs" />
+    <Compile Remove="WH2K0BStTXiKhfHUMX.cs" />
+    <Compile Remove="YEmNknpjJbopgg4nswV.cs" />
+  </ItemGroup>
+
+</Project>
