@@ -137,5 +137,11 @@ namespace TPCOMMGER
             formPlc form = new formPlc();
             form.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            formPlcConfiguration form = new formPlcConfiguration();
+            form.Show();
+        }
     }
 }
