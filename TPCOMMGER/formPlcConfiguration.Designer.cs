@@ -60,6 +60,7 @@
             // 
             // alias
             // 
+            this.alias.DataPropertyName = "alias";
             this.alias.FillWeight = 60F;
             this.alias.HeaderText = "别名";
             this.alias.Name = "alias";
@@ -67,6 +68,7 @@
             // 
             // address
             // 
+            this.address.DataPropertyName = "address";
             this.address.FillWeight = 60F;
             this.address.HeaderText = "地址";
             this.address.Name = "address";
@@ -74,6 +76,7 @@
             // 
             // type
             // 
+            this.type.DataPropertyName = "type";
             this.type.FillWeight = 60F;
             this.type.HeaderText = "类型";
             this.type.Name = "type";
@@ -81,6 +84,7 @@
             // 
             // function
             // 
+            this.function.DataPropertyName = "function";
             this.function.FillWeight = 150F;
             this.function.HeaderText = "功能";
             this.function.Name = "function";
@@ -149,6 +153,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
             this.Name = "formPlcConfiguration";
             this.Text = "formPlcConfiguration";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -160,15 +165,15 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn alias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn function;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIP;
         private System.Windows.Forms.TextBox txtSeries;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn function;
     }
 }

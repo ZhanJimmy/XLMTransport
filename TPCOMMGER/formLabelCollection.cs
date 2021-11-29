@@ -17,26 +17,30 @@ namespace TPCOMMGER
         public formLabelCollection()
         {
             InitializeComponent();
-            InitData();
         }
         private void InitData()
         {
             var cols = BaseIniHelper.ReadKeys(PathHelper.PTLabel, SectionHelper.SLabel);
-            DataTable dataTable = new DataTable(); 
-            DataColumn ddc = new DataColumn()
+            DataTable dataTable = new DataTable();
+            var column = new DataGridViewColumn()
             {
-                ColumnName = "textBoxCode",
-                Caption = "Code",
+                Name = ControlHelper.DFLabelTName,
+                HeaderText = ControlHelper.DFLabelLText,
+                DataPropertyName = ControlHelper.DFLabelTName,
+                CellTemplate = new DataGridViewTextBoxCell(),
             };
+            dataGridView1.Columns.Add(column);
             dataTable.Columns.Add(ControlHelper.DFLabelTName);
             foreach (var col in cols)
             {
                 var des = BaseIniHelper.Read(PathHelper.PTLabel, SectionHelper.SLabel, col);
-                DataColumn dc = new DataColumn()
+                dataGridView1.Columns.Add(new DataGridViewColumn()
                 {
-                    ColumnName = des,
-                    Caption = col
-                };
+                    Name = col,
+                    HeaderText = des,
+                    DataPropertyName = col,
+                    CellTemplate = new DataGridViewTextBoxCell(),
+                });
                 dataTable.Columns.Add(col);
             }
             var keys = BaseIniHelper.ReadKeys(PathHelper.PTLabelData, SectionHelper.SLabelData);
@@ -46,18 +50,23 @@ namespace TPCOMMGER
                 var json = BaseIniHelper.Read(PathHelper.PTLabelData, SectionHelper.SLabelData, key);
                 var dic = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
                 DataRow row = dataTable.NewRow();
-                foreach(var dk in dic.Keys)
+                foreach (var dk in dic.Keys)
                 {
                     row[dk] = dic[dk];
                 }
                 dataTable.Rows.Add(row);
             }
-            dataGridView1.DataSource = dataTable; 
+            dataGridView1.DataSource = dataTable;
         }
 
         private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
             var a = e.Row;
+        }
+
+        private void formLabelCollection_Load(object sender, EventArgs e)
+        {
+            InitData();
         }
     }
 }

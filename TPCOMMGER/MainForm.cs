@@ -12,11 +12,13 @@ using Yankon.Framework.IniExtension;
 using TPCOMMGER.Helper;
 using TPCOMMGER.CusEnum;
 using Newtonsoft.Json;
+using Yankon.Framework.Extension;
 
 namespace TPCOMMGER
 {
     public partial class MainForm : Form
     {
+        int SelectedRowIndex = -1;
         public MainForm()
         {
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace TPCOMMGER
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if(this.WindowState == FormWindowState.Minimized)
+            if (this.WindowState == FormWindowState.Minimized)
             {
                 this.WindowState = FormWindowState.Normal;
                 this.ShowInTaskbar = true;
@@ -60,24 +62,26 @@ namespace TPCOMMGER
         private void MainForm_Load(object sender, EventArgs e)
         {
             InitDefault();
-            var keys = BaseIniHelper.ReadKeys(PathHelper.PTPlcData, SectionHelper.SPlc); 
+            var keys = BaseIniHelper.ReadKeys(PathHelper.PTPlcData, SectionHelper.SPlc);
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("PName");
-            dataTable.Columns.Add("Description");
-            dataTable.Columns.Add("Model");
-            foreach(var key in keys)
+            foreach(DataGridViewColumn col in dataGridView1.Columns)
+            {
+                dataTable.Columns.Add(col.Name);
+            }
+            foreach (var key in keys)
             {
                 var json = BaseIniHelper.Read(PathHelper.PTPlcData, SectionHelper.SPlc, key);
                 var dic = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
                 var newRow = dataTable.NewRow();
-                foreach(var dk in dic.Keys)
+                foreach (var dk in dic.Keys)
                 {
-                    if (dk == "PName" || dk == "Description" || dk == "Model")
+                    if (dataTable.Columns.Contains(dk))
                         newRow[dk] = dic[dk];
                 }
                 dataTable.Rows.Add(newRow);
             }
             dataGridView1.DataSource = dataTable;
+            if (dataTable.Rows.Count > 0) SelectedRowIndex = 0;
         }
 
         #region 加载 默认
@@ -140,8 +144,25 @@ namespace TPCOMMGER
 
         private void button4_Click(object sender, EventArgs e)
         {
-            formPlcConfiguration form = new formPlcConfiguration();
+            if (SelectedRowIndex == -1)
+            {
+                MessageBox.Show("请先选择行数据");
+                return;
+            }
+            var srow = dataGridView1.Rows[SelectedRowIndex];
+            DynamicEntity entity = new DynamicEntity();
+            foreach (DataGridViewCell cell in srow.Cells)
+            {
+                var name = dataGridView1.Columns[cell.ColumnIndex].Name;
+                entity[name] = cell.Value;
+            }
+            formPlcConfiguration form = new formPlcConfiguration(entity);
             form.Show();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SelectedRowIndex = e.RowIndex;
         }
     }
 }
