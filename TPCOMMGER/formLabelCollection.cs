@@ -59,11 +59,6 @@ namespace TPCOMMGER
             dataGridView1.DataSource = dataTable;
         }
 
-        private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-        {
-            var a = e.Row;
-        }
-
         private void formLabelCollection_Load(object sender, EventArgs e)
         {
             InitData();
