@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XLM.ZJM.Communication", "Cl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XLM.ZJM.DeltaModbusAddress", "ClassLibrary\XLM.ZJM.DeltaModbusAddress\XLM.ZJM.DeltaModbusAddress.csproj", "{47D845E9-2D0F-4541-ADCB-449E8B48ADF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPCOMMGER.WindowsService", "COMMGER\TPCOMMGER.WindowsService\TPCOMMGER.WindowsService.csproj", "{6A0FE967-9B0E-4A15-8082-D326DB6F54A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{47D845E9-2D0F-4541-ADCB-449E8B48ADF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47D845E9-2D0F-4541-ADCB-449E8B48ADF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47D845E9-2D0F-4541-ADCB-449E8B48ADF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A0FE967-9B0E-4A15-8082-D326DB6F54A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0FE967-9B0E-4A15-8082-D326DB6F54A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A0FE967-9B0E-4A15-8082-D326DB6F54A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0FE967-9B0E-4A15-8082-D326DB6F54A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{F4CAD13A-0A6D-4B91-B4A5-D38E8549AC40} = {6258416B-9FD2-4736-AEEC-1FE21A116D26}
 		{1BE05718-9BFA-4512-B9CF-7E58F98FB75B} = {4FC6CB4B-AB4A-465B-BCBE-A996D03E518D}
 		{47D845E9-2D0F-4541-ADCB-449E8B48ADF0} = {4FC6CB4B-AB4A-465B-BCBE-A996D03E518D}
+		{6A0FE967-9B0E-4A15-8082-D326DB6F54A3} = {6258416B-9FD2-4736-AEEC-1FE21A116D26}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D9AA56C2-58CE-4A93-901F-60089B4B2AD0}
