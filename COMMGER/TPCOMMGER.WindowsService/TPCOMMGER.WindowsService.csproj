@@ -55,6 +55,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerControl.cs" />
+    <Compile Include="ServerData.cs" />
+    <Compile Include="ServerExtension.cs" />
+    <Compile Include="ServerHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -25,7 +25,7 @@ namespace TPCOMMGER.WindowsService
 
         protected override void OnStart(string[] args)
         {
-            SocketServerControl.Instance.BeginServer();
+            ServerControl.Instance.BeginServer();
             InitPlc();
             if (lsTupe == null || lsTupe.Count == 0) return;
         }
