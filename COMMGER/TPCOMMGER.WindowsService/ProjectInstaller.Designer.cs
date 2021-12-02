@@ -46,6 +46,7 @@
             // 
             // serviceInstaller2
             // 
+            this.serviceInstaller2.Description = "Socket 服务器";
             this.serviceInstaller2.DisplayName = "TPSocketService";
             this.serviceInstaller2.ServiceName = "SocketService";
             this.serviceInstaller2.StartType = System.ServiceProcess.ServiceStartMode.Automatic;

@@ -12,6 +12,8 @@ using TPCOMMGER.Framework.Helper;
 using TPCOMMGER.Framework.CusEnum;
 using TPCOMMGER.Framework.Model;
 using Newtonsoft.Json;
+using TPCOMMGER.WindowsService.OperateSocket;
+using System.Threading;
 
 namespace TPCOMMGER.WindowsService
 {
@@ -27,8 +29,32 @@ namespace TPCOMMGER.WindowsService
 
         protected override void OnStart(string[] args)
         {
-            //InitPlc();
-            //if (lsTupe == null || lsTupe.Count == 0) return;
+            InitPlc();
+            if (lsTupe == null || lsTupe.Count == 0) return;
+            foreach(var tupe in lsTupe)
+            {
+                var parent = tupe.Item1;
+                TcpClientAdapter adapter = new TcpClientAdapter(tupe.Item1.IpAddress, tupe.Item1.Port);
+                adapter.HandleSuccess = new Action<System.Net.Sockets.Socket>((client) =>
+                {
+                    while (true)
+                    {
+                        try
+                        {
+
+                        }catch(Exception ex)
+                        {
+
+                        }
+                        Thread.Sleep(1000);
+                    }
+                });
+                adapter.HandleDisconnect = new Action(() =>
+                {
+
+                });
+                adapter.Run();
+            }
         }
 
         private void InitPlc()
