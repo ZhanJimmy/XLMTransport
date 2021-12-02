@@ -27,7 +27,7 @@ namespace TPCOMMGER.WindowsService
     /// <para>邮箱：jianmei.zhan@yankon.com</para>
     /// <para>时间：2021/11/24 11:12:05</para>
     /// </summary>
-    internal class ServerHelper
+    internal class ServiceHelper
     {
         internal static string Header = "D0584C4D";
         internal static string CEHex = "0000000000000000";

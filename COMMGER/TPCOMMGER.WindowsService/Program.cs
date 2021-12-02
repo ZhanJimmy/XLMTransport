@@ -17,7 +17,8 @@ namespace TPCOMMGER.WindowsService
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new CommgerService()
+                new CommgerService(),
+                new SocketService(),
             };
             ServiceBase.Run(ServicesToRun);
         }

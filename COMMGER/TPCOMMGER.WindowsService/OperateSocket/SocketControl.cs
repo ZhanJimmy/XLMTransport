@@ -31,21 +31,21 @@ namespace TPCOMMGER.WindowsService
     /// <para>邮箱：jianmei.zhan@yankon.com</para>
     /// <para>时间：2021/11/30 17:03:15</para>
     /// </summary>
-    public sealed class ServerControl
+    public sealed class SocketControl
     {
         #region
         /// <summary>
         /// 构造函数
         /// </summary>
-        private ServerControl()
+        private SocketControl()
         {
 
         }
-        public static ServerControl Instance => Nested.instance;
+        public static SocketControl Instance => Nested.instance;
         private class Nested
         {
             static Nested() { }
-            internal static readonly ServerControl instance = new ServerControl();
+            internal static readonly SocketControl instance = new SocketControl();
         }
         #endregion
 
@@ -103,7 +103,7 @@ namespace TPCOMMGER.WindowsService
                 var entity = (ReceiveEntity)result.AsyncState;
                 Socket ts = entity.Client;
                 IPEndPoint remotePoint = (IPEndPoint)ts.RemoteEndPoint;
-                if (entity.Data.Take(ServerHelper.ByteLen).ByteToHex() != ServerHelper.Header)
+                if (entity.Data.Take(ServiceHelper.ByteLen).ByteToHex() != ServiceHelper.Header)
                 {
                     List<byte> byteBack = new List<byte>();
                     byteBack.AddRange(entity.Data);
@@ -112,26 +112,26 @@ namespace TPCOMMGER.WindowsService
                     ts.EndReceive(result);
                     return;
                 }
-                var byteLength = entity.Data.TakeLast(ServerHelper.ByteLen).ToArray();
+                var byteLength = entity.Data.TakeLast(ServiceHelper.ByteLen).ToArray();
                 var length = byteLength.ToInt();
                 byte[] buffer = new byte[length];
                 ts.Receive(buffer, 0, length, SocketFlags.None);
                 ts.EndReceive(result);
                 {
-                    if (byteLength.ByteToHex() == ServerHelper.HSHex && buffer.ByteToHex() == ServerHelper.CEHex)
+                    if (byteLength.ByteToHex() == ServiceHelper.HSHex && buffer.ByteToHex() == ServiceHelper.CEHex)
                     {
                         // hand shake
                         List<byte> byteBack = new List<byte>();
-                        byteBack.AddRange(entity.Data.Take(ServerHelper.ByteLen).ToArray());
+                        byteBack.AddRange(entity.Data.Take(ServiceHelper.ByteLen).ToArray());
                         byteBack.AddRange(new byte[] { 0x00, 0x00, 0x00, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 });
                         byteBack.AddRange(remotePoint.Port.ToClientNode());
                         ts.Send(byteBack.ToArray(), 0, byteBack.Count, SocketFlags.None);
                         if (ClientList.IndexOf(ts) == -1)
                             ClientList.Add(ts);
                     }
-                    if (byteLength.ByteToHex() == ServerHelper.RHex && remotePoint.Port == buffer.TakeLast(ServerHelper.ByteLen).ToArray().ClientNodeToPort())
+                    if (byteLength.ByteToHex() == ServiceHelper.RHex && remotePoint.Port == buffer.TakeLast(ServiceHelper.ByteLen).ToArray().ClientNodeToPort())
                     {
-                        var byteCommand = buffer.Take(ServerHelper.ByteLen).ToArray().ToCommand();
+                        var byteCommand = buffer.Take(ServiceHelper.ByteLen).ToArray().ToCommand();
                         switch (byteCommand)
                         {
                             case 0x01:
@@ -168,9 +168,9 @@ namespace TPCOMMGER.WindowsService
                                 break;
                         }
                     }
-                    if (byteLength.ByteToHex() == ServerHelper.WHex && remotePoint.Port == buffer.TakeLast(ServerHelper.ByteLen).ToArray().ClientNodeToPort())
+                    if (byteLength.ByteToHex() == ServiceHelper.WHex && remotePoint.Port == buffer.TakeLast(ServiceHelper.ByteLen).ToArray().ClientNodeToPort())
                     {
-                        var byteCommand = buffer.Take(ServerHelper.ByteLen).ToArray().ToCommand();
+                        var byteCommand = buffer.Take(ServiceHelper.ByteLen).ToArray().ToCommand();
                         switch (byteCommand)
                         {
                             case 0x03:

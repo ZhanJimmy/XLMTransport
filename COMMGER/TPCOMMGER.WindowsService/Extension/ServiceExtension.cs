@@ -28,7 +28,7 @@ namespace TPCOMMGER.WindowsService
     /// <para>邮箱：jianmei.zhan@yankon.com</para>
     /// <para>时间：2021/11/24 11:03:52</para>
     /// </summary>
-    public static class ServerExtension
+    public static class ServiceExtension
     {
         #region Hex  Byte[]
         /// <summary>
@@ -92,7 +92,7 @@ namespace TPCOMMGER.WindowsService
         /// <returns></returns>
         public static int ToInt(this IEnumerable<byte> value)
         {
-            if (value.Count() != ServerHelper.ByteLen) return 0;
+            if (value.Count() != ServiceHelper.ByteLen) return 0;
             var high = (ushort)IPAddress.NetworkToHostOrder(BitConverter.ToInt16(value.Take(2).ToArray(), 0));
             var low = (ushort)IPAddress.NetworkToHostOrder(BitConverter.ToInt16(value.TakeLast(2).ToArray(), 0));
             var arr = BitConverter.GetBytes(low).Concat(BitConverter.GetBytes(high)).ToArray();
@@ -105,7 +105,7 @@ namespace TPCOMMGER.WindowsService
         /// <returns></returns>
         public static int ToInt(this byte[] value)
         {
-            if (value.Length != ServerHelper.ByteLen) return 0;
+            if (value.Length != ServiceHelper.ByteLen) return 0;
             var high = (ushort)IPAddress.NetworkToHostOrder(BitConverter.ToInt16(value.Take(2).ToArray(), 0));
             var low = (ushort)IPAddress.NetworkToHostOrder(BitConverter.ToInt16(value.TakeLast(2).ToArray(), 0));
             var arr = BitConverter.GetBytes(low).Concat(BitConverter.GetBytes(high)).ToArray();
@@ -141,7 +141,7 @@ namespace TPCOMMGER.WindowsService
         /// <returns></returns>
         public static int ClientNodeToPort(this byte[] value)
         {
-            if (value.Length != ServerHelper.ByteLen) return -1;
+            if (value.Length != ServiceHelper.ByteLen) return -1;
             return value.ToInt();
         }
 
