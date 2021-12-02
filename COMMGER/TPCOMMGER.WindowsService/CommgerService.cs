@@ -18,9 +18,11 @@ namespace TPCOMMGER.WindowsService
     public partial class CommgerService : ServiceBase
     {
         List<Tuple<PlcDataModel, List<PlcDetailDataModel>>> lsTupe = new List<Tuple<PlcDataModel, List<PlcDetailDataModel>>>();
+        WindowsServiceHelper Helper;
         public CommgerService()
         {
             InitializeComponent();
+            Helper = new WindowsServiceHelper(this);         
         }
 
         protected override void OnStart(string[] args)
