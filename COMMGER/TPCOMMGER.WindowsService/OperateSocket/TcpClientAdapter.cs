@@ -5,6 +5,10 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using TPCOMMGER.Framework.CusEnum;
+using TPCOMMGER.Framework.Model;
+using TPCOMMGER.WindowsService.Extension;
+using TPCOMMGER.WindowsService.Helper;
 
 /**
 *┌────────────────────────────┐
@@ -33,6 +37,8 @@ namespace TPCOMMGER.WindowsService.OperateSocket
     {
         private string _ip;
         private int _port;
+        private DefaultSeries Series;
+        private bool flag = false;
         /// <summary>
         /// 构造函数
         /// </summary>
@@ -41,11 +47,26 @@ namespace TPCOMMGER.WindowsService.OperateSocket
             _ip = ip;
             _port = port;
         }
-
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="ip"></param>
+        /// <param name="port"></param>
         internal TcpClientAdapter(string ip, string port)
         {
             _ip = ip;
             _port = int.Parse(port);
+        }
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="model"></param>
+        internal TcpClientAdapter(PlcDataModel model)
+        {
+            _ip = model.IpAddress;
+            _port = int.Parse(model.Port);
+            flag = true;
+            Series = (DefaultSeries)Enum.Parse(typeof(DefaultSeries), model.Series);
         }
 
         internal void Run()
@@ -69,8 +90,31 @@ namespace TPCOMMGER.WindowsService.OperateSocket
                 }
                 else
                 {
-                    client.EndConnect(result);
-                    HandleSuccess?.Invoke(client.Client);
+                    if (flag == false)
+                    {
+                        client.EndConnect(result);
+                        HandleSuccess?.Invoke(client.Client);
+                    }
+                    else
+                    {
+                        // 专属 类型
+                        switch (Series)
+                        {
+                            case DefaultSeries.Delta:
+                                client.EndConnect(result);
+                                HandleSuccess?.Invoke(client.Client);
+                                break;
+                            case DefaultSeries.Omron:
+                                var tupe = client.Client.FinsHandShake();
+                                if (tupe != null && tupe.Item1)
+                                {
+                                    client.EndConnect(result);
+                                    MemoryCacheHelper.SetCache(CacheKeyHelper.HandShake, tupe.Item2);
+                                    HandleSuccess?.Invoke(client.Client);
+                                }
+                                break;
+                        }
+                    }
                 }
             }
             catch { }

@@ -61,7 +61,7 @@ namespace TPCOMMGER.WindowsService
         {
             ClientList = new ObservableCollection<Socket>();
             ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            ServerSocket.Bind(new IPEndPoint(IPAddress.Parse("0.0.0.0"), 816));
+            ServerSocket.Bind(new IPEndPoint(IPAddress.Parse("0.0.0.0"), ServiceHelper.SocketPort));
             ServerSocket.Listen(1000);
             Console.WriteLine("start server succeed");
             ListenAccept();

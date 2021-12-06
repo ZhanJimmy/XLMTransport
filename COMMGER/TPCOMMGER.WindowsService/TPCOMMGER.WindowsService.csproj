@@ -40,6 +40,7 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extension\TcpClientExtension.cs" />
+    <Compile Include="Helper\CacheKeyHelper.cs" />
+    <Compile Include="Helper\MemoryCacheHelper.cs" />
     <Compile Include="OperateSocket\TcpClientAdapter.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -96,6 +100,17 @@
     <EmbeddedResource Include="Services\SocketService.resx">
       <DependentUpon>SocketService.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="NetFwTypeLib">
+      <Guid>{58FBCF7C-E7A9-467C-80B3-FC65E8FCCA08}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

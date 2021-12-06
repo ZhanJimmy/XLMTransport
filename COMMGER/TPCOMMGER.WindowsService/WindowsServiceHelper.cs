@@ -47,6 +47,16 @@ namespace TPCOMMGER.WindowsService
             logHelper.Source = sourceName;
             logHelper.Log = logName;
         }
+        internal WindowsServiceHelper(string sourceName)
+        {
+            logHelper = new EventLog();
+            if (!EventLog.SourceExists(sourceName))
+            {
+                EventLog.CreateEventSource(sourceName, logName);
+            }
+            logHelper.Source = sourceName;
+            logHelper.Log = logName;
+        }
 
         internal void WriteLog(string msg)
         {
