@@ -22,6 +22,7 @@ namespace TPCOMMGER.WindowsService
     {
         List<Tuple<PlcDataModel, List<PlcDetailDataModel>>> lsTupe = new List<Tuple<PlcDataModel, List<PlcDetailDataModel>>>();
         WindowsServiceHelper Helper;
+        bool flag = true;
         public CommgerService()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace TPCOMMGER.WindowsService
                 TcpClientAdapter adapter = new TcpClientAdapter(tupe.Item1.IpAddress, tupe.Item1.Port);
                 adapter.HandleSuccess = new Action<SocketEx>((client) =>
                 {
-                    while (true)
+                    while (flag)
                     {
                         try
                         {
@@ -85,6 +86,7 @@ namespace TPCOMMGER.WindowsService
 
         protected override void OnStop()
         {
+            flag = false;
         }
 
 
