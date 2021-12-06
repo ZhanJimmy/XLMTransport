@@ -14,6 +14,7 @@ using TPCOMMGER.Framework.Model;
 using Newtonsoft.Json;
 using TPCOMMGER.WindowsService.OperateSocket;
 using System.Threading;
+using TPCOMMGER.WindowsService.Extension;
 
 namespace TPCOMMGER.WindowsService
 {
@@ -41,7 +42,10 @@ namespace TPCOMMGER.WindowsService
                     {
                         try
                         {
-
+                            foreach(var child in tupe.Item2)
+                            {
+                                client.ReadData(child);
+                            }
                         }catch(Exception ex)
                         {
 

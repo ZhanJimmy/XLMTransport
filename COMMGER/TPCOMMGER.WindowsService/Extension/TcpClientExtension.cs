@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TPCOMMGER.Framework.CusEnum;
+using TPCOMMGER.Framework.Model;
 using TPCOMMGER.WindowsService.Helper;
 
 /**
@@ -370,11 +371,11 @@ namespace TPCOMMGER.WindowsService.Extension
         {
 
         }
-        internal static void ReadData(this SocketEx client, string address)
+        internal static void ReadData(this SocketEx client, PlcDetailDataModel model)
         {
 
         }
-        internal static void WriteData(this SocketEx client, string address, object data)
+        internal static void WriteData(this SocketEx client, PlcDetailDataModel model, object data)
         {
 
         }
