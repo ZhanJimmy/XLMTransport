@@ -78,6 +78,7 @@
     <Compile Include="Services\SocketService.Designer.cs">
       <DependentUpon>SocketService.cs</DependentUpon>
     </Compile>
+    <Compile Include="SocketEx.cs" />
     <Compile Include="WindowsServiceHelper.cs" />
   </ItemGroup>
   <ItemGroup>

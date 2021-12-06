@@ -35,7 +35,7 @@ namespace TPCOMMGER.WindowsService
             {
                 var parent = tupe.Item1;
                 TcpClientAdapter adapter = new TcpClientAdapter(tupe.Item1.IpAddress, tupe.Item1.Port);
-                adapter.HandleSuccess = new Action<System.Net.Sockets.Socket>((client) =>
+                adapter.HandleSuccess = new Action<SocketEx>((client) =>
                 {
                     while (true)
                     {

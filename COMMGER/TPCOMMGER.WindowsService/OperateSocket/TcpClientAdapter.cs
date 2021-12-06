@@ -90,10 +90,11 @@ namespace TPCOMMGER.WindowsService.OperateSocket
                 }
                 else
                 {
+                    var st = new SocketEx() { Client = client.Client, SeriesType = Series };
                     if (flag == false)
                     {
                         client.EndConnect(result);
-                        HandleSuccess?.Invoke(client.Client);
+                        HandleSuccess?.Invoke(st);
                     }
                     else
                     {
@@ -102,7 +103,7 @@ namespace TPCOMMGER.WindowsService.OperateSocket
                         {
                             case DefaultSeries.Delta:
                                 client.EndConnect(result);
-                                HandleSuccess?.Invoke(client.Client);
+                                HandleSuccess?.Invoke(st);
                                 break;
                             case DefaultSeries.Omron:
                                 var tupe = client.Client.FinsHandShake();
@@ -110,7 +111,7 @@ namespace TPCOMMGER.WindowsService.OperateSocket
                                 {
                                     client.EndConnect(result);
                                     MemoryCacheHelper.SetCache(CacheKeyHelper.HandShake, tupe.Item2);
-                                    HandleSuccess?.Invoke(client.Client);
+                                    HandleSuccess?.Invoke(st);
                                 }
                                 break;
                         }
@@ -121,6 +122,6 @@ namespace TPCOMMGER.WindowsService.OperateSocket
         }
 
         internal Action HandleDisconnect { get; set; }
-        internal Action<Socket> HandleSuccess { get; set; }
+        internal Action<SocketEx> HandleSuccess { get; set; }
     }
 }

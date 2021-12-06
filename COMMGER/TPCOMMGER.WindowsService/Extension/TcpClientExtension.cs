@@ -4,7 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using TPCOMMGER.Framework.CusEnum;
+using TPCOMMGER.WindowsService.Helper;
 
 /**
 *┌────────────────────────────┐
@@ -300,6 +303,80 @@ namespace TPCOMMGER.WindowsService.Extension
                 tempValue[0], tempValue[1]
             };
             client.Send(buffer, buffer.Length, SocketFlags.None);
+        }
+        #endregion
+
+        #region
+        internal static ushort ReadUShort(this SocketEx client, string address)
+        {
+            ushort value = 0;
+            switch (client.SeriesType)
+            {
+                case DefaultSeries.Delta:
+                    var addr1 = ushort.Parse(Regex.Replace(address, "[a-zA-Z]", ""));
+                    value = client.Client.ReadModbusUShort(addr1);
+                    break;
+                case DefaultSeries.Omron:
+                    var addr2 = uint.Parse(Regex.Replace(address, "[a-zA-Z]", ""));
+                    var byteShake = (byte[])MemoryCacheHelper.GetCache(CacheKeyHelper.HandShake);
+                    value = client.Client.ReadFinsUSort(byteShake, addr2);
+                    break;
+            }
+            return value;
+        }
+        internal static uint ReadUInt(this SocketEx client, string address)
+        {
+            uint value = 0;
+            switch (client.SeriesType)
+            {
+                case DefaultSeries.Delta:
+                    var addr1 = ushort.Parse(Regex.Replace(address, "[a-zA-Z]", ""));
+                    value = client.Client.ReadModbusUInt(addr1);
+                    break;
+                case DefaultSeries.Omron:
+                    var addr2 = uint.Parse(Regex.Replace(address, "[a-zA-Z]", ""));
+                    var byteShake = (byte[])MemoryCacheHelper.GetCache(CacheKeyHelper.HandShake);
+                    value = client.Client.ReadFinsUInt(byteShake, addr2);
+                    break;
+            }
+            return value;
+        }
+        internal static bool ReadBool(this SocketEx client, string address)
+        {
+            bool value = false;
+            switch (client.SeriesType)
+            {
+                case DefaultSeries.Delta:
+                    var addr1 = short.Parse(Regex.Replace(address, "[a-zA-Z]", ""));
+                    value = client.Client.ReadModbusBool(addr1);
+                    break;
+                case DefaultSeries.Omron:
+                    var addr2 = uint.Parse(Regex.Replace(address, "[a-zA-Z]", ""));
+                    var byteShake = (byte[])MemoryCacheHelper.GetCache(CacheKeyHelper.HandShake);
+                    value = client.Client.ReadFinsBool(byteShake, addr2);
+                    break;
+            }
+            return value;
+        }
+        internal static void WriteUShort(this SocketEx client, string address, ushort data)
+        {
+
+        }
+        internal static void WriteUInt(this SocketEx client, string address, uint data)
+        {
+
+        }
+        internal static void WriteBool(this SocketEx client, string address, bool data)
+        {
+
+        }
+        internal static void ReadData(this SocketEx client, string address)
+        {
+
+        }
+        internal static void WriteData(this SocketEx client, string address, object data)
+        {
+
         }
         #endregion
     }
