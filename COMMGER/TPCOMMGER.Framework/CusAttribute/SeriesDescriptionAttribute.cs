@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Text;
+using TPCOMMGER.Framework.CusEnum;
 
 /**
 *┌────────────────────────────┐
@@ -11,7 +11,7 @@ using System.Text;
 *│　邮    箱：jianmei.zhan@yankon.com 
 *│　公    司：厦门阳光恩耐照明有限公司      
 *│　部    门：数字化研发部                           
-*│　创建时间：2021/11/25 11:49:51                                          
+*│　创建时间：2021/12/7 8:50:14                                          
 *│　版    本：V1.0.0      
 *│　功能描述：                           
 *└────────────────────────────┘
@@ -19,20 +19,25 @@ using System.Text;
 *│　Copyright @ Yankon 2021. All rights reserved                                                                
 *└────────────────────────────┘
 */
-namespace TPCOMMGER.Framework.CusEnum
+namespace TPCOMMGER.Framework
 {
     ///  功能描述：
     /// <para>作者：jianmei.zhan</para>
     /// <para>邮箱：jianmei.zhan@yankon.com</para>
-    /// <para>时间：2021/11/25 11:49:51</para>
+    /// <para>时间：2021/12/7 8:50:14</para>
     /// </summary>
-    public enum DefaultModel
+    public class SeriesDescriptionAttribute : Attribute
     {
-        [SeriesDescription(Default = DefaultSeries.Delta)]
-        AS = 0,
-        [SeriesDescription(Default = DefaultSeries.Delta)]
-        DVP = 1,
-        [SeriesDescription(Default = DefaultSeries.Omron)]
-        CP = 2,
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public SeriesDescriptionAttribute()
+        {
+
+        }
+
+        public DefaultSeries Default { get; set; }
+
+        public string Remark { get; set; }
     }
 }

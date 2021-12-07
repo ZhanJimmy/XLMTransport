@@ -85,8 +85,8 @@ namespace TPCOMMGER
                 foreach(var name in arr)
                 {
                     var field = typeof(DefaultModel).GetField(name.ToString());
-                    DescriptionAttribute ds = (DescriptionAttribute)System.Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute), false);
-                    lsTupe.Add(Tuple.Create(ds.Description, field.Name));
+                    SeriesDescriptionAttribute ds = (SeriesDescriptionAttribute)System.Attribute.GetCustomAttribute(field, typeof(SeriesDescriptionAttribute), false);
+                    lsTupe.Add(Tuple.Create(ds.Default.ToString(), field.Name));
                 }
             }
             {
