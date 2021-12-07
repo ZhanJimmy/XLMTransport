@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.alias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.function = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIP = new System.Windows.Forms.TextBox();
             this.txtSeries = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtRemark = new System.Windows.Forms.TextBox();
+            this.alias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.function = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,38 +57,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(375, 336);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
-            // 
-            // alias
-            // 
-            this.alias.DataPropertyName = "alias";
-            this.alias.FillWeight = 60F;
-            this.alias.HeaderText = "别名";
-            this.alias.Name = "alias";
-            this.alias.Width = 60;
-            // 
-            // address
-            // 
-            this.address.DataPropertyName = "address";
-            this.address.FillWeight = 60F;
-            this.address.HeaderText = "地址";
-            this.address.Name = "address";
-            this.address.Width = 60;
-            // 
-            // type
-            // 
-            this.type.DataPropertyName = "type";
-            this.type.FillWeight = 60F;
-            this.type.HeaderText = "类型";
-            this.type.Name = "type";
-            this.type.Width = 60;
-            // 
-            // function
-            // 
-            this.function.DataPropertyName = "function";
-            this.function.FillWeight = 150F;
-            this.function.HeaderText = "功能";
-            this.function.Name = "function";
-            this.function.Width = 150;
             // 
             // label1
             // 
@@ -141,6 +109,44 @@
             this.txtRemark.Size = new System.Drawing.Size(326, 23);
             this.txtRemark.TabIndex = 6;
             // 
+            // alias
+            // 
+            this.alias.DataPropertyName = "alias";
+            this.alias.FillWeight = 60F;
+            this.alias.HeaderText = "别名";
+            this.alias.Name = "alias";
+            this.alias.Width = 60;
+            // 
+            // address
+            // 
+            this.address.DataPropertyName = "address";
+            this.address.FillWeight = 60F;
+            this.address.HeaderText = "地址";
+            this.address.Name = "address";
+            this.address.Width = 60;
+            // 
+            // type
+            // 
+            this.type.DataPropertyName = "type";
+            this.type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.type.FillWeight = 60F;
+            this.type.HeaderText = "类型";
+            this.type.Name = "type";
+            this.type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.type.Width = 60;
+            // 
+            // function
+            // 
+            this.function.DataPropertyName = "function";
+            this.function.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.function.FillWeight = 150F;
+            this.function.HeaderText = "功能";
+            this.function.Name = "function";
+            this.function.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.function.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.function.Width = 150;
+            // 
             // formPlcConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -173,7 +179,7 @@
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn alias;
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn function;
+        private System.Windows.Forms.DataGridViewComboBoxColumn type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn function;
     }
 }

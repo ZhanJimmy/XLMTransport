@@ -31,6 +31,7 @@
             // 
             // SocketService
             // 
+            this.CanStop = false;
             this.ServiceName = "SocketService";
 
         }

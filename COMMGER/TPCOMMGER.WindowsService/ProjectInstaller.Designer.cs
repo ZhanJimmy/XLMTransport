@@ -42,14 +42,12 @@
             // 
             this.serviceInstaller1.DisplayName = "TPCommgerService";
             this.serviceInstaller1.ServiceName = "CommgerService";
-            this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // serviceInstaller2
             // 
             this.serviceInstaller2.Description = "Socket 服务器";
             this.serviceInstaller2.DisplayName = "TPSocketService";
             this.serviceInstaller2.ServiceName = "SocketService";
-            this.serviceInstaller2.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // ProjectInstaller
             // 

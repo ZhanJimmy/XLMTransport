@@ -26,6 +26,7 @@ namespace TPCOMMGER.Framework
     /// <para>邮箱：jianmei.zhan@yankon.com</para>
     /// <para>时间：2021/12/7 8:50:14</para>
     /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
     public class SeriesDescriptionAttribute : Attribute
     {
         /// <summary>

@@ -27,6 +27,13 @@ namespace TPCOMMGER.Framework.CusEnum
     /// </summary>
     public enum DefaultDeviceType
     {
-        
+        [SeriesDescription(Default = DefaultSeries.Delta)]
+        [SeriesDescription(Default = DefaultSeries.Omron)]
+        Bit = 0,
+        [SeriesDescription(Default = DefaultSeries.Delta)]
+        [SeriesDescription(Default = DefaultSeries.Omron)]
+        Word = 1,
+        [SeriesDescription(Default = DefaultSeries.Delta)]
+        DWord = 2,
     }
 }
